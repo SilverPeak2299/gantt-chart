@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gantt Chart Builder"
+  short_description: "Create and update project Gantt charts quickly"
+  default_prompt: "Use $gantt-chart to turn my project tasks into a clean Gantt chart and render it as SVG."

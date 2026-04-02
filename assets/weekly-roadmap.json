@@ -1,0 +1,30 @@
+{
+  "title": "Quarterly Roadmap",
+  "timeline": {
+    "title": "Weeks",
+    "labels": ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6"]
+  },
+  "tracks": [
+    {
+      "name": "Discovery",
+      "items": [
+        { "label": "Interviews", "start": "Week 1", "end": "Week 1" },
+        { "label": "Synthesis", "start": "Week 2", "end": "Week 2" }
+      ]
+    },
+    {
+      "name": "Design",
+      "items": [
+        { "label": "Flows", "start": "Week 2", "end": "Week 3" },
+        { "label": "Prototype", "start": "Week 3", "end": "Week 4" }
+      ]
+    },
+    {
+      "name": "Engineering",
+      "items": [
+        { "label": "Build", "start": "Week 4", "end": "Week 5" },
+        { "label": "QA", "start": "Week 5", "end": "Week 6" }
+      ]
+    }
+  ]
+}
