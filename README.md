@@ -1,34 +1,51 @@
 # `gantt-chart`
 
-Standalone Codex skill for creating, updating, and rendering Gantt charts from JSON timeline specs.
+`gantt-chart` is a standalone Codex skill for creating, revising, and rendering Gantt charts from project notes or JSON timeline specs.
 
 ## Install
 
-From the machine where Codex runs, go to your skills directory and clone the repo:
+Clone the repository directly into your Codex skills directory:
 
 ```bash
 cd ~/.codex/skills
-git clone https://github.com/<your-github-username>/gantt-chart.git
+git clone https://github.com/SilverPeak2299/gantt-chart.git
 ```
 
-That creates the expected install path:
+This installs the skill at:
 
 ```text
 ~/.codex/skills/gantt-chart
 ```
 
-Restart Codex after installing so the new skill is picked up.
+Restart Codex after cloning so the skill is loaded.
 
 ## Update
 
+Pull the latest changes from GitHub:
+
 ```bash
 cd ~/.codex/skills/gantt-chart
-git pull --ff-only
+git pull --ff-only https://github.com/SilverPeak2299/gantt-chart.git main
 ```
 
-## Use
+## Use In Codex
 
-Ask Codex to use `$gantt-chart` to build or revise a chart from project notes or a JSON spec.
+Ask Codex to use `$gantt-chart` when you want to:
+
+- turn rough project notes into a chart
+- revise an existing Gantt chart spec
+- render a JSON timeline file to SVG
+- reorganize tasks into tracks, phases, or weekly slots
+
+Example prompts:
+
+```text
+Use $gantt-chart to turn these milestones into a Gantt chart.
+Use $gantt-chart to update plan.json and render a new SVG.
+Use $gantt-chart to convert this roadmap into week-based timeline slots.
+```
+
+## Use From The Command Line
 
 Render a spec manually:
 
@@ -36,18 +53,29 @@ Render a spec manually:
 python3 scripts/render_gantt.py path/to/spec.json --output path/to/chart.svg --preview
 ```
 
-Use one of the bundled starter templates:
+Render from stdin:
+
+```bash
+cat path/to/spec.json | python3 scripts/render_gantt.py - --output chart.svg
+```
+
+Start from a bundled template:
 
 ```bash
 cp assets/basic-project.json ./plan.json
 python3 scripts/render_gantt.py plan.json --output plan.svg --preview
 ```
 
+## Note For LLMs And Contributors
+
+This `README.md` is written as user-facing GitHub documentation.
+The canonical skill instructions for model behavior live in `SKILL.md`, not here.
+
 ## Repository Layout
 
-- `SKILL.md`: skill trigger and workflow instructions
-- `agents/openai.yaml`: UI metadata
-- `scripts/render_gantt.py`: main render entrypoint
+- `SKILL.md`: model-facing skill trigger and workflow instructions
+- `agents/openai.yaml`: skill UI metadata
+- `scripts/render_gantt.py`: primary render entrypoint
 - `scripts/gantt_chart_skill/`: bundled Python runtime
-- `references/`: JSON spec docs and examples
-- `assets/`: starter templates
+- `references/`: spec details and examples
+- `assets/`: starter chart templates
